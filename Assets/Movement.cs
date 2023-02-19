@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+
+    Rigidbody m_Rigidbody;
+    public float speed = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_Rigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        var rb = GetComponent<Rigidbody>();
         if (Input.GetKey(KeyCode.A))
-            rb.AddForce(Vector3.left);
+            m_Rigidbody.AddForce(speed, 0, 0);
         if (Input.GetKey(KeyCode.D))
-            rb.AddForce(Vector3.right);
+            m_Rigidbody.AddForce(-speed, 0, 0);
         if (Input.GetKey(KeyCode.W))
-            rb.AddForce(Vector3.up);
+            m_Rigidbody.AddForce(0, 0, speed);
         if (Input.GetKey(KeyCode.S))
-            rb.AddForce(Vector3.down);
+            m_Rigidbody.AddForce(0, 0, -speed);
     }
 }
