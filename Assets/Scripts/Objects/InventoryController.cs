@@ -27,8 +27,8 @@ public class InventoryController : MonoBehaviour
         try
         {
             itemFound = Items.Find((x) => x.Material.name == itemToFind.name); // Throws nullexceptions if not found! // There is a weird bug that throws null if ihere is an empty space BEFORE the item??
-            Debug.Log(itemToFind.id);
-            Debug.Log("found" + itemFound.Material.id);
+            //Debug.Log(itemToFind.id);
+            //Debug.Log("found" + itemFound.Material.id);
         } 
 
 
@@ -38,7 +38,7 @@ public class InventoryController : MonoBehaviour
             return null;
             
         }
-        Debug.Log(itemFound);
+        //Debug.Log(itemFound);
         return itemFound;
     }
 
@@ -111,7 +111,7 @@ public class InventoryController : MonoBehaviour
             }
 
         }
-        Debug.Log(canAfford);
+        Debug.Log("Cannot afford!");
 
         if (canAfford) //if enough resources
         {

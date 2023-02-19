@@ -13,13 +13,14 @@ public class ItemController : MonoBehaviour
     {
         InventoryController.Instance.AddToInventory(item);
         //Destroy item
+        Debug.Log(item.name + " obtained!");
 
     }
     
     private void OnMouseDown()
     {
         Pickup();
-        Debug.Log(item.name + " obtained!");
+
     }
 
 
