@@ -18,9 +18,9 @@ public class Movement : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.A))
-            m_Rigidbody.AddForce(speed, 0, 0);
-        if (Input.GetKey(KeyCode.D))
             m_Rigidbody.AddForce(-speed, 0, 0);
+        if (Input.GetKey(KeyCode.D))
+            m_Rigidbody.AddForce(speed, 0, 0);
         if (Input.GetKey(KeyCode.W))
             m_Rigidbody.AddForce(0, 0, speed);
         if (Input.GetKey(KeyCode.S))
