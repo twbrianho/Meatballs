@@ -29,7 +29,7 @@ public class InventoryController : MonoBehaviour
         Items.Remove(item);
     }
 
- /*   // Learn Recipe
+    // Learn Recipe
     public void Learn(CraftingRecipe recipe)
     {
         Recipes.Add(recipe);
@@ -37,8 +37,13 @@ public class InventoryController : MonoBehaviour
 
     // Make items
     public void Craft(CraftingRecipe recipe)
-    {
-        Items.Add(recipe.item);
+    {   
+        if (true) //if enough resources
+        {
+            Items.Remove(recipe.cost[0].Material.GetComponent<ItemController>().item); //will need to cycle through
+            Items.Add(recipe.productPrefab.GetComponent<ItemController>().item);
+        }
+
     }
-*/
+
 }
