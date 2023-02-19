@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276774, g: 0.21589114, b: 0.2978246, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -135,16 +135,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed6535f408c804c58ac1b61ce2abb7d8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ed6535f408c804c58ac1b61ce2abb7d8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ed6535f408c804c58ac1b61ce2abb7d8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ed6535f408c804c58ac1b61ce2abb7d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.4600725
+      value: 0.83
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed6535f408c804c58ac1b61ce2abb7d8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5862471
+      value: 0.59
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed6535f408c804c58ac1b61ce2abb7d8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.8821423
+      value: -1.26
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ed6535f408c804c58ac1b61ce2abb7d8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -174,9 +186,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ed6535f408c804c58ac1b61ce2abb7d8, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ed6535f408c804c58ac1b61ce2abb7d8, type: 3}
       propertyPath: m_Name
-      value: bed1 3
+      value: Sofa
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed6535f408c804c58ac1b61ce2abb7d8, type: 3}
@@ -609,6 +625,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  sensX: 0
+  sensY: 0
+  orientation: {fileID: 0}
 --- !u!65 &963194231
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -976,7 +995,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1960728127
 GameObject:
