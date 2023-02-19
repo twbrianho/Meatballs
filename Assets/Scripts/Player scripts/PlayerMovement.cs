@@ -14,12 +14,14 @@ public class PlayerMovement : MonoBehaviour
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump;
+    bool readyToSprint;
 
     [HideInInspector] public float walkSpeed;
-    [HideInInspector] public float sprintSpeed;
+    public float sprintSpeed;
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode sprintKey = KeyCode.LeftShift;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -41,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
 
         readyToJump = true;
+        readyToSprint = true;
     }
 
     private void Update()
@@ -77,6 +80,17 @@ public class PlayerMovement : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+
+        // when to sprint
+
+        if(Input.GetKey(sprintKey) && readyToSprint)
+        {
+            readyToSprint = false;
+            Sprint();
+            readyToSprint = true;
+        }
+
+
     }
 
     private void MovePlayer()
@@ -103,6 +117,12 @@ public class PlayerMovement : MonoBehaviour
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
+    }
+
+    private void Sprint()
+    {
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        rb.AddForce(moveDirection.normalized * sprintSpeed * 10f, ForceMode.Force);
     }
 
     private void Jump()
