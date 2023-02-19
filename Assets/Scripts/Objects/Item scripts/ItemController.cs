@@ -5,13 +5,13 @@ using UnityEngine;
 public class ItemController : MonoBehaviour
 {
 
-    public Item Item;
+    public Item item;
 
     // Should this be seperate between pickable and non pickable?
 
     void Pickup()
     {
-        InventoryController.Instance.Add(Item);
+        InventoryController.Instance.Add(item);
         //Destroy item
 
     }

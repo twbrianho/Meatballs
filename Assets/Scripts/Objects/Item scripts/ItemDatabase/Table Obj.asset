@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 478d958ec374e934baac7166377ab8ea, type: 3}
-  m_Name: Test Obj
+  m_Name: Table Obj
   m_EditorClassIdentifier: 
-  id: 1
-  name: Test
-  description: This is a test obj
+  id: 2
+  name: Table
+  description: Its a table yo
   icon: {fileID: 0}

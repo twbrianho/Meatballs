@@ -6,6 +6,7 @@ public class InventoryController : MonoBehaviour
 {
     public static InventoryController Instance;
     public List<Item> Items = new List<Item>();
+    public List<CraftingRecipe> Recipes = new List<CraftingRecipe>();
 
     public Transform ItemContent;
     public GameObject InventoryItem;
@@ -27,4 +28,17 @@ public class InventoryController : MonoBehaviour
     {
         Items.Remove(item);
     }
+
+ /*   // Learn Recipe
+    public void Learn(CraftingRecipe recipe)
+    {
+        Recipes.Add(recipe);
+    }
+
+    // Make items
+    public void Craft(CraftingRecipe recipe)
+    {
+        Items.Add(recipe.item);
+    }
+*/
 }
