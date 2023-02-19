@@ -11,7 +11,7 @@ public class ItemController : MonoBehaviour
 
     void Pickup()
     {
-        InventoryController.Instance.Add(item);
+        InventoryController.Instance.AddToInventory(item);
         //Destroy item
 
     }
@@ -19,6 +19,7 @@ public class ItemController : MonoBehaviour
     private void OnMouseDown()
     {
         Pickup();
+        Debug.Log(item.name + " obtained!");
     }
 
 

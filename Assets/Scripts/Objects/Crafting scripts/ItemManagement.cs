@@ -4,14 +4,14 @@ using UnityEngine;
 
 [System.Serializable]
 
-public class CraftingResource
+public class ItemManagement
 {
-    public GameObject Material;
-    public int Amount = 0;
+    public Item Material;
+    public int Amount=0;
 
-    public CraftingResource(GameObject material, int amount)
+/*    public void itemList(Item material, int amount)
     {
         this.Material = material;
         this.Amount = amount;
-    }
+    }*/
 }

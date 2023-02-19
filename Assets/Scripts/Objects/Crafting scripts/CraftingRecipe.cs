@@ -10,6 +10,6 @@ public class CraftingRecipe : ScriptableObject
     public string name;
     public string description;
     public Sprite icon;
-    public List<CraftingResource> cost;
-    public GameObject productPrefab;
+    public List<ItemManagement> cost;
+    public Item product; // make it productS in the future
 }

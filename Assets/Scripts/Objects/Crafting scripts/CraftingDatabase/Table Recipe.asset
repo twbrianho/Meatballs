@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a2a02de174ca34a8ae12263c11bdd6, type: 3}
   m_Name: Table Recipe
   m_EditorClassIdentifier: 
-  id: 1
+  id: 0
   name: Table Recipe
-  description: Makes a table
+  description: Makes a table from 2 planks
   icon: {fileID: 0}
   cost:
-  - Material: {fileID: 9101119904315646688, guid: 229dd41b59bb4fd4faa0dbc722fe38e0, type: 3}
-    Amount: 1
-  productPrefab: {fileID: 633275476420863175, guid: e47f17fc2a0df124f83a0c728328ef21, type: 3}
+  - Material: {fileID: 11400000, guid: 1980cc1ac961bf54b92f0e73e85d4d06, type: 2}
+    Amount: 2
+  product: {fileID: 11400000, guid: ca1aa5f8e4f3c554887384bb823eae38, type: 2}
