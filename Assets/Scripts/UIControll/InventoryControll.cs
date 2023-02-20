@@ -7,12 +7,14 @@ public class InventoryControll : MonoBehaviour
 
 
     public GameObject Inventory;
+    public GameObject Crosshair;
     public bool inventoryIsClosed;
 
     // Start is called before the first frame update
     void Start()
     {
         inventoryIsClosed = true;
+        Inventory.SetActive(false);
     }
 
     // Update is called once per frame
@@ -23,6 +25,7 @@ public class InventoryControll : MonoBehaviour
             if (inventoryIsClosed == true)
             {
                 Inventory.SetActive(true);
+                Crosshair.SetActive(false);
                 inventoryIsClosed = false;
 
                 Cursor.lockState = CursorLockMode.None;
@@ -32,6 +35,7 @@ public class InventoryControll : MonoBehaviour
             else
             {
                 Inventory.SetActive(false);
+                Crosshair.SetActive(true);
                 inventoryIsClosed = true;
 
                 Cursor.lockState = CursorLockMode.Locked;
