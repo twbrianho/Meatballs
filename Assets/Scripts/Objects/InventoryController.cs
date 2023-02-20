@@ -127,15 +127,16 @@ public class InventoryController : MonoBehaviour
 
     public void ListItems()
     {
-        Debug.Log("RUN");
         foreach (var item in Items)
         {
             GameObject obj = Instantiate(InventoryItem, ItemContent);
             var itemName = obj.transform.Find("ItemName").GetComponent<Text>();
             var itemIcon = obj.transform.Find("Image").GetComponent<Image>();
+            var itemAmount = obj.transform.Find("Amount").GetComponent<Text>();
 
             itemName.text = item.Material.name;
             itemIcon.sprite = item.Material.icon;
+            itemAmount.text = item.Amount.ToString();
         }
     }
 
