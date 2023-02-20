@@ -14,6 +14,7 @@ public class ItemController : MonoBehaviour
         InventoryController.Instance.AddToInventory(item);
         //Destroy item
         Debug.Log(item.name + " obtained!");
+        InventoryController.Instance.UpdateAlwaysOnItems();
 
     }
     

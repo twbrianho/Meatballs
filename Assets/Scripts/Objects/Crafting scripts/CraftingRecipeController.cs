@@ -13,6 +13,7 @@ public class CraftingRecipeController : MonoBehaviour
     {
         InventoryController.Instance.Craft(craftingRecipe);
         //Destroy item
+        InventoryController.Instance.UpdateAlwaysOnItems();
 
     }
 
