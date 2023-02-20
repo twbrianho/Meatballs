@@ -5,10 +5,12 @@ using UnityEngine;
 public class InventoryControll : MonoBehaviour
 {
 
-
     public GameObject Inventory;
     public GameObject Crosshair;
     public bool inventoryIsClosed;
+    public GameObject InventoryController;
+    public GameObject Content;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,8 @@ public class InventoryControll : MonoBehaviour
         {
             if (inventoryIsClosed == true)
             {
+                //open Inventory
+                InventoryController.GetComponent<InventoryController>().ListItems();
                 Inventory.SetActive(true);
                 Crosshair.SetActive(false);
                 inventoryIsClosed = false;
@@ -34,6 +38,10 @@ public class InventoryControll : MonoBehaviour
             }
             else
             {
+                //close Inventory
+                foreach (Transform child in Content.transform) {
+                    GameObject.Destroy(child.gameObject);
+                }
                 Inventory.SetActive(false);
                 Crosshair.SetActive(true);
                 inventoryIsClosed = true;

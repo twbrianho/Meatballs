@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryController : MonoBehaviour
 {
@@ -122,6 +123,20 @@ public class InventoryController : MonoBehaviour
             AddToInventory(recipe.product);
         }
 
+    }
+
+    public void ListItems()
+    {
+        Debug.Log("RUN");
+        foreach (var item in Items)
+        {
+            GameObject obj = Instantiate(InventoryItem, ItemContent);
+            var itemName = obj.transform.Find("ItemName").GetComponent<Text>();
+            var itemIcon = obj.transform.Find("Image").GetComponent<Image>();
+
+            itemName.text = item.Material.name;
+            itemIcon.sprite = item.Material.icon;
+        }
     }
 
 }
