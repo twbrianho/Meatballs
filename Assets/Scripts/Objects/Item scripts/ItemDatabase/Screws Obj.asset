@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 0
   name: Screws
   description: Its sharp
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 8b042856a28cb4228929ab91127a5572, type: 3}
