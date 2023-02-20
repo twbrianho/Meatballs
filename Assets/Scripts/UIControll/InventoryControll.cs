@@ -12,7 +12,7 @@ public class InventoryControll : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inventoryIsClosed = false;
+        inventoryIsClosed = true;
     }
 
     // Update is called once per frame
@@ -24,11 +24,18 @@ public class InventoryControll : MonoBehaviour
             {
                 Inventory.SetActive(true);
                 inventoryIsClosed = false;
+
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+
             }
             else
             {
                 Inventory.SetActive(false);
                 inventoryIsClosed = true;
+
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
             }
         }
     }
