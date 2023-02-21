@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 1
   name: Planks
   description: Planks for basic woodwork
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 878c63f6e2bc149e380582942284b3f4, type: 3}

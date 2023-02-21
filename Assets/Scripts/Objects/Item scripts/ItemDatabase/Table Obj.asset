@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 2
   name: Table
   description: Its a table yo
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 2cdaa0869e61d4c2abfdff83a7e20f3e, type: 3}

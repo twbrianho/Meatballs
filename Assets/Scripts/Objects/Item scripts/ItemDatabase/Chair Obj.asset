@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 3
   name: Chair
   description: You kinda sit on it
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 7d69f281bb2f141528e46a524d8c7894, type: 3}

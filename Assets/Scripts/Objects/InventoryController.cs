@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryController : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class InventoryController : MonoBehaviour
 
     public Transform ItemContent;
     public GameObject InventoryItem;
+
+    public Transform AlwaysOnItemContent;
+    public GameObject AlwaysOnInventoryItem;
+    
 
 
     void Awake()
@@ -122,6 +127,44 @@ public class InventoryController : MonoBehaviour
             AddToInventory(recipe.product);
         }
 
+    }
+
+
+    public void ListItems()
+    {
+        foreach (var item in Items)
+        {
+            GameObject obj = Instantiate(InventoryItem, ItemContent);
+            var itemName = obj.transform.Find("ItemName").GetComponent<Text>();
+            var itemIcon = obj.transform.Find("Image").GetComponent<Image>();
+            var itemAmount = obj.transform.Find("Amount").GetComponent<Text>();
+
+            itemName.text = item.Material.name;
+            itemIcon.sprite = item.Material.icon;
+            itemAmount.text = item.Amount.ToString();
+        }
+    }
+
+
+    public void UpdateAlwaysOnItems()
+    {
+
+        foreach (Transform child in AlwaysOnItemContent.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+
+        foreach (var item in Items)//limited to 9 items
+        {
+            GameObject obj = Instantiate(AlwaysOnInventoryItem, AlwaysOnItemContent);
+            //var itemName = obj.transform.Find("ItemName").GetComponent<Text>(); no name is shown
+            var itemIcon = obj.transform.Find("Image").GetComponent<Image>();
+            var itemAmount = obj.transform.Find("Amount").GetComponent<Text>();
+
+            //itemName.text = item.Material.name;
+            itemIcon.sprite = item.Material.icon;
+            itemAmount.text = item.Amount.ToString();
+        }
     }
 
 }
