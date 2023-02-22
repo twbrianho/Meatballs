@@ -1502,7 +1502,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242577672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1523,11 +1523,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sizeX: 40
   sizeZ: 40
-  cornerX: 5
-  cornerZ: 5
-  bigSize: 15
+  cornerX: -5
+  cornerZ: -5
+  numberOfRooms: 15
   floorTile: {fileID: 7972716940594876085, guid: 9bf65f7c31778b94c8456fe65b5ec482, type: 3}
   whiteTile: {fileID: 722270594354283641, guid: bb3c09b7b0059114994143ababacd705, type: 3}
+  complexitymin: 1
+  complexitymax: 3
 --- !u!1 &1250041352
 GameObject:
   m_ObjectHideFlags: 0
@@ -2455,7 +2457,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639590801}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

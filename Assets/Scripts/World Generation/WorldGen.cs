@@ -12,7 +12,7 @@ public class WorldGen : MonoBehaviour
     public int sizeZ;
     public int cornerX; //leftmost corner, each block is exactly the same as x/z
     public int cornerZ;
-    public int bigSize;
+    public int numberOfRooms;
     int complexity;
 /*    int startX;
     int startZ;*/
@@ -20,21 +20,24 @@ public class WorldGen : MonoBehaviour
     int minZ;
     public GameObject floorTile;
     public GameObject whiteTile;
+    public int complexitymin; // half of min number of turns
+    public int complexitymax; // half of max number of turns
+    int curlyFactor; // it will break unity if you set this too small, so sherry makes me lock it
     bool parity; //true = enter from x, false = enter from z 
     int end;
     int en;
     int ex;
     int stX;
     int stZ;
+    //public Transform AlwaysOnItemContent;
 
-    
     void Generate(int entry, int exit, int startX, int startZ) //entry/exit = 0 postive X, 1 positive Z, 2 negative x, 3 negative z
     {
-/*        sizeX = UnityEngine.Random.Range(30, 50);
-        sizeZ = UnityEngine.Random.Range(30, 50);*/
+        /*        sizeX = UnityEngine.Random.Range(30, 50);
+                sizeZ = UnityEngine.Random.Range(30, 50);*/
         //check if size colides with other rooms. 
-
-        complexity = (UnityEngine.Random.Range(2, 3) *2)+ (entry-exit)%2; // will be even if going across, odd if going L/R
+        curlyFactor = 5;    
+        complexity = (UnityEngine.Random.Range(complexitymin, complexitymax) *2)+ (entry-exit)%2; // will be even if going across, odd if going L/R
         //Debug.Log("Number of turns: " + complexity);
 
 
@@ -74,7 +77,7 @@ public class WorldGen : MonoBehaviour
 
 
         Vector3 Ve = new Vector3(minX + (sizeX) / 2f , 0f, minZ + (sizeZ) / 2f ); 
-        GameObject flooring = Instantiate(floorTile, Ve, Quaternion.identity);
+        GameObject flooring = Instantiate(floorTile, Ve, Quaternion.identity,transform);
         flooring.transform.localScale = new Vector3(sizeX, 1, sizeZ);
 
         if (exit == 0)
@@ -157,7 +160,7 @@ public class WorldGen : MonoBehaviour
             {
 
                 turn = minZ + UnityEngine.Random.Range(3, sizeZ - 3); // aim for turn
-                while (Mathf.Abs(turn - floatyZ) < sizeZ / 5)
+                while (Mathf.Abs(turn - floatyZ) < sizeZ / curlyFactor)
                 {
                     turn = minZ + UnityEngine.Random.Range(3, sizeZ - 3); // reroll until its not too close
                 }
@@ -166,6 +169,7 @@ public class WorldGen : MonoBehaviour
                 {
                     Vector3 V = new Vector3(floatyX+0.5f, 0.55f, P+0.5f);
                     GameObject obj = Instantiate(whiteTile, V, Quaternion.identity);
+                    obj.transform.SetParent(flooring.transform);
                     //Debug.Log(floatyX + " x " +  P);
                 }
                 floatyZ = turn;
@@ -176,7 +180,7 @@ public class WorldGen : MonoBehaviour
 
                 turn = minX + UnityEngine.Random.Range(3, sizeX - 3);
 
-                while (Mathf.Abs(turn - floatyX) < sizeX / 5)
+                while (Mathf.Abs(turn - floatyX) < sizeX / curlyFactor)
                 {
                     turn = minX + UnityEngine.Random.Range(3, sizeX - 3); // reroll until its not too close
                 }
@@ -185,6 +189,7 @@ public class WorldGen : MonoBehaviour
                 {
                     Vector3 V = new Vector3(P+0.5f, 0.55f, floatyZ+0.5f);
                     GameObject obj = Instantiate(whiteTile, V, Quaternion.identity);
+                    obj.transform.SetParent(flooring.transform);
                 }
                 floatyX = turn;
                 parity = !parity;
@@ -197,6 +202,7 @@ public class WorldGen : MonoBehaviour
             {
                 Vector3 V = new Vector3(floatyX+0.5f, 0.55f, P+0.5f);
                 GameObject obj = Instantiate(whiteTile, V, Quaternion.identity);
+                obj.transform.SetParent(flooring.transform);
 
             }
             stX = floatyX;
@@ -208,6 +214,7 @@ public class WorldGen : MonoBehaviour
             {
                 Vector3 V = new Vector3(P+0.5f, 0.55f, floatyZ+0.5f);
                 GameObject obj = Instantiate(whiteTile, V, Quaternion.identity);
+                obj.transform.SetParent(flooring.transform);
 
             }
             stZ = floatyZ;
@@ -241,7 +248,7 @@ public class WorldGen : MonoBehaviour
         //Debug.Log(stZ);
         //UnityEngine.Random.Range(0, bigSize);
 
-        for (int i = 0; i < bigSize; i++)
+        for (int i = 0; i < numberOfRooms; i++)
         {
             en = (ex + 2) % 4; // its a + coz unity can't handle modulo -1 apparently 
             ex = (en + UnityEngine.Random.Range(1, 4)) % 4; // 1 will turn R, 2 will go straight, 3 will turn L
